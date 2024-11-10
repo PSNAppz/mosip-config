@@ -31,6 +31,36 @@
       "enabled": "true"
     },
     {
+      "credential_issuer": "OpenG2PSocialRegistry",
+      "display": [
+          {
+              "name": "OpenG2P Social Registry e-Cards",
+              "logo": {
+                  "url": "${openg2p.social.registry.base.url}/g2p_openid_vci/static/description/icon.png",
+                  "alt_text": "openg2p-logo"
+              },
+              "title": "OpenG2P Social Registry e-Cards",
+              "description": "Download Registry e-Cards",
+              "language": "en"
+          }
+      ],
+      "protocol": "OpenId4VCI",
+      "client_id": "${mimoto.oidc.openg2p.partner.clientid}",
+      "client_alias": "openg2p-mimotooidc",
+      "scopes_supported": ["openg2p_registry_vc_ldp", "openg2p_registry_group_vc_ldp"],
+      "additional_headers": { "Accept": "application/json" },
+      ".well-known": "${openg2p.social.registry.base.url}/api/v1/vci/.well-known/openid-credential-issuer",
+      "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
+      "authorization_endpoint": "https://${mosip.esignet.host}/authorize",
+      "authorization_audience": "https://${mosip.esignet.host}/v1/esignet/oauth/v2/token",
+      "token_endpoint": "https://${mosip.api.public.host}/residentmobileapp/get-token/OpenG2PSocialRegistry",
+      "proxy_token_endpoint": "https://${mosip.esignet.host}/v1/esignet/oauth/v2/token",
+      "credential_endpoint": "${openg2p.social.registry.base.url}/api/v1/vci/credential",
+      "credential_type": ["VerifiableCredential", "OpenG2PRegistryVerifiableCredential"],
+      "credential_audience": "${openg2p.social.registry.base.url}",
+      "enabled": "true"
+    },
+    {
       "credential_issuer": "OpenG2PBeneficiary",
       "display": [
           {
